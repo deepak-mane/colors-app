@@ -7,7 +7,8 @@ class Palatte extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      level: 500
+      level: 500,
+      format: 'hex'
     }
     this.changeLevel = this.changeLevel.bind(this)
     this.changeFormat = this.changeFormat.bind(this)
@@ -18,6 +19,7 @@ class Palatte extends Component {
 
   changeFormat(val) {
     this.setState({ format: val })
+    console.log(this.state.format)
   }
   render() {
     const { colors } = this.props.palette
