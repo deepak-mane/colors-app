@@ -9,7 +9,7 @@ import './PaletteList.css'
 const useStyles = makeStyles({
   root: {
     background: 'blue',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center'
