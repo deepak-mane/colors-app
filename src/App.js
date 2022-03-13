@@ -14,7 +14,7 @@ import { generatePalette } from './colorHelpers'
 function App() {
   let navigate = useNavigate()
   const findPalette = id => {
-    console.log('Inside findPalette', id)
+    // console.log('Inside findPalette', id)
     return seedColors.find(function (palette) {
       return palette.id === id
     })
@@ -22,16 +22,16 @@ function App() {
 
   const PaletteWrapper = () => {
     const { id } = useParams()
-    console.log('Inside PaletteWrapper', id)
+    // console.log('Inside PaletteWrapper', id)
     const item = findPalette(id)
-    console.log('Inside PaletteWrapper', item.colors)
+    // console.log('Inside PaletteWrapper', item.colors)
     return <Palatte palette={generatePalette(item)} />
   }
   const SingleColorWrapper = () => {
     const { paletteId, colorId } = useParams()
-    console.log('Inside SingleColorWrapper', paletteId, colorId)
+    // console.log('Inside SingleColorWrapper', paletteId, colorId)
     const item = findPalette(paletteId)
-    console.log('Inside SingleColorWrapper', item.colors)
+    // console.log('Inside SingleColorWrapper', item.colors)
     return (
       <SingleColorPalette
         colorId={colorId}
