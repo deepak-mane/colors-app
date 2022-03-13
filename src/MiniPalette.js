@@ -1,68 +1,48 @@
 import React from 'react'
-import { Box, ThemeProvider, createTheme } from '@mui/system'
+import { makeStyles } from '@mui/styles'
 
-const theme = createTheme({
-  palette: {
-    background: {
-      paper: 'purple'
-    },
-    text: {
-      primary: '#173A5E',
-      secondary: '#46505A'
-    },
-    action: {
-      active: '#001E3C'
-    },
-    success: {
-      dark: '#009688'
+const useStyles = makeStyles({
+  root: {
+    background: 'white',
+    border: '1px solid black',
+    borderRadius: '5px',
+    padding: '0.5rem',
+    position: 'relative',
+    overflow: 'hidden',
+    '&:hover': {
+      cursor: 'pointer'
     }
+  },
+  colors: {
+    backgroundColor: 'grey'
+  },
+  title: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: '0',
+    color: 'black',
+    paddingTop: '0.5rem',
+    fontSize: '1rem',
+    position: 'relative'
+  },
+  emoji: {
+    marginLeft: '0.5rem',
+    fontSize: '1.5rem'
   }
 })
 
-function MiniPalette() {
+function MiniPalette(props) {
+  const classes = useStyles()
+  const { paletteName, emoji } = props
+  console.log(classes)
   return (
-    <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          bgcolor: 'background.paper',
-          boxShadow: 1,
-          borderRadius: 2,
-          p: 2,
-          minWidth: 300
-        }}
-      >
-        <Box sx={{ color: 'text.secondary' }}>Sessions</Box>
-        <Box
-          sx={{
-            color: 'text.primary',
-            fontSize: 34,
-            fontWeight: 'medium'
-          }}
-        >
-          Mini Palette
-        </Box>
-        <Box
-          sx={{
-            color: 'success.dark',
-            display: 'inline',
-            fontWeight: 'bold',
-            mx: 0.5,
-            fontSize: 14
-          }}
-        >
-          +18.77%
-        </Box>
-        <Box
-          sx={{
-            color: 'text.secondary',
-            display: 'inline',
-            fontSize: 14
-          }}
-        >
-          vs. last week
-        </Box>
-      </Box>
-    </ThemeProvider>
+    <div className={classes.root}>
+      <div className={classes.colors}></div>
+      <h5 className={classes.title}>
+        {paletteName} <span className={classes.emoji}>{emoji}</span>
+      </h5>
+    </div>
   )
 }
 export default MiniPalette
