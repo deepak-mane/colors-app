@@ -32,10 +32,11 @@ class Palatte extends Component {
         id={color.id}
         paletteId={id}
         moreUrl={`/palette/${id}/${color.id}`}
+        showLink={true}
       />
     ))
     return (
-      <div className='Palatte'>
+      <div className='Palette'>
         <Navbar
           level={level}
           changeLevel={this.changeLevel}

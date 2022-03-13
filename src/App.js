@@ -30,15 +30,23 @@ function App() {
   const SingleColorWrapper = () => {
     const { paletteId, colorId } = useParams()
     console.log('Inside SingleColorWrapper', paletteId, colorId)
-    return <SingleColorPalette />
+    const item = findPalette(paletteId)
+    console.log('Inside SingleColorWrapper', item.colors)
+    return (
+      <SingleColorPalette
+        colorId={colorId}
+        palette={generatePalette(item)}
+      />
+    )
   }
   return (
     <Routes>
       <Route
         exact='true'
-        path='/'
-        element={<PaletteList palettes={seedColors} />}
+        path='/palette/:paletteId/:colorId'
+        element={<SingleColorWrapper />}
       />
+
       <Route
         exact='true'
         path='/palette/:id'
@@ -46,8 +54,8 @@ function App() {
       />
       <Route
         exact='true'
-        path='/palette/:paletteId/:colorId'
-        element={<SingleColorWrapper />}
+        path='/'
+        element={<PaletteList palettes={seedColors} />}
       />
     </Routes>
     // <div>
