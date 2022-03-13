@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
 import Palatte from './Palatte'
-import Home from './Home'
+import PaletteList from './PaletteList'
 import seedColors from './seedColors'
 import { generatePalette } from './colorHelpers'
 
@@ -23,7 +23,11 @@ function App() {
 
   return (
     <Routes>
-      <Route exact='true' path='/' element={<Home />} />
+      <Route
+        exact='true'
+        path='/'
+        element={<PaletteList palettes={seedColors} />}
+      />
       <Route
         exact='true'
         path='/palette/:id'
